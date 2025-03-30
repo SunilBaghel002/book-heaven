@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Haven</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <i class="fas fa-book-open"></i>
+          <span>Book Haven</span>
+        </div>
+        <div class="nav-search">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search books by title, author or category..."
+          />
+          <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#" class="nav-link">Browse</a>
+          <a href="#" class="nav-link">New Arrivals</a>
+          <a href="#" class="nav-link">Contact</a>
+          <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </div>
+          <button class="user-icon"><i class="fas fa-user"></i></button>
+        </div>
+        <div class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Discover Your Next Adventure</h1>
+        <p>
+          Explore thousands of books across genres, find your next favorite read
+          and get it delivered to your doorstep.
+        </p>
+        <a href="#book-list" class="cta-button">Browse Collection</a>
+      </div>
+    </header>
+
+    <section class="featured-section">
+      <div class="section-title">
+        <h2>Featured Books</h2>
+        <div class="title-underline"></div>
+      </div>
+      <div class="featured-books" id="featured-books">
+        <!-- Featured books will be loaded here by JS -->
+      </div>
+    </section>
+
+    <main>
+      <section class="controls-container">
+        <div class="controls">
+          <div class="filter-group">
+            <div class="filter">
+              <label for="category">Category:</label>
+              <select id="category">
+                <option value="all">All Categories</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Romance">Romance</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Horror">Horror</option>
+                <option value="Biography">Biography</option>
+              </select>
+            </div>
+            <div class="filter">
+              <label for="author">Author:</label>
+              <select id="author">
+                <option value="all">All Authors</option>
+                <!-- Authors will be loaded by JS -->
+              </select>
+            </div>
+            <div class="filter">
+              <label for="price-range">Price Range:</label>
+              <div class="range-slider">
+                <span id="price-display">$0 - $50</span>
+                <input
+                  type="range"
+                  id="price-range"
+                  min="0"
+                  max="50"
+                  step="5"
+                  value="50"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="sort">
+            <label for="sort-option">Sort by:</label>
+            <select id="sort-option">
+              <option value="none">Recommended</option>
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="low-to-high">Price (Low to High)</option>
+              <option value="high-to-low">Price (High to Low)</option>
+              <option value="newest">Newest First</option>
+            </select>
+          </div>
+        </div>
+        <button id="filter-toggle" class="filter-toggle">
+          <i class="fas fa-filter"></i> Filters
+        </button>
+      </section>
+
+      <section class="results-info">
+        <p>Showing <span id="book-count">0</span> books</p>
+        <button id="view-toggle" class="view-toggle">
+          <i class="fas fa-th"></i>
+        </button>
+      </section>
+
+      <section id="book-list" class="book-container grid-view"></section>
+
+      <div class="pagination">
+        <button id="prev-page" disabled>
+          <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <div id="page-numbers" class="page-numbers">
+          <!-- Page numbers will be added by JS -->
+        </div>
+        <button id="next-page">
+          Next <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </main>
+
+    <section class="newsletter">
+      <div class="newsletter-container">
+        <div class="newsletter-content">
+          <h2>Join Our Newsletter</h2>
+          <p>
+            Subscribe to get updates on new books, exclusive offers, and reading
+            recommendations.
+          </p>
+          <form id="newsletter-form" class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h3>About Book Haven</h3>
+          <p>
+            Your one-stop destination for quality books across all genres. We're
+            passionate about reading and connecting readers with their next
+            favorite book.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Browse Books</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">Special Offers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact">
+          <h3>Contact Us</h3>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 123 Book Street, Library City
+          </p>
+          <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+          <p><i class="fas fa-envelope"></i> info@bookhaven.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Book Haven. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button id="close-cart"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="cart-items" class="cart-items">
+        <!-- Cart items will be loaded here by JS -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <p>Total:</p>
+          <p id="cart-total-amount">$0.00</p>
+        </div>
+        <button id="checkout-btn" class="checkout-btn">
+          Checkout with WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Book Detail Modal -->
+    <div class="book-modal" id="book-modal">
+      <div class="modal-content">
+        <button id="close-modal" class="close-modal">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="modal-book-details">
+          <!-- Book details will be loaded here by JS -->
+        </div>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modal-overlay"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
